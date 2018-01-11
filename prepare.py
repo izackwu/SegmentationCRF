@@ -10,10 +10,10 @@ def add_file(filepath, file_list, open_folder=False):
             print("##{0} already exists".format(filepath))
         else:
             file_list.append(filepath)
-            print("##Add {0} to training files.".format(filepath))
+            print("##Add {0} to file list.".format(filepath))
     elif os.path.isdir(filepath):
         if open_folder == False:
-            option = input("Seems that it's a folder, so add all the files inside as training files?(y/n)\n")
+            option = input("Seems that it's a folder, so add all the files inside?(y/n)\n")
             if option.lower() == "y":
                 add_file(filepath, file_list, open_folder=True)
             else:
