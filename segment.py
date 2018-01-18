@@ -20,6 +20,7 @@ def segment_CRF(file, crf_model, sep="  "):
         buffer = ""
         for line in f:
             line = line.strip()
+            line = line.replace(" ", "")
             buffer += ("\n".join(line)+"\n"+"\n")
             if len(buffer) > (1 << 20):
                 save(buffer, temp_file[0])
@@ -47,6 +48,7 @@ def segment_CRF(file, crf_model, sep="  "):
             else:
                 raise ValueError("Invalid tag found!")
         save(buffer, result_file)
+
     for file in temp_file:
         os.remove(file)
     print("##Success.")
